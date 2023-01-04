@@ -1,10 +1,10 @@
 'use client'
 
-import {useState} from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { FaDribbble, FaGithub, FaInstagram, FaPinterest, FaTwitter } from 'react-icons/fa';
+import { FaChartPie, FaDribbble, FaGithub, FaInstagram, FaKey, FaPinterest, FaTwitter, FaUserCircle } from 'react-icons/fa';
 
 export default function Signup() {
     const [user, setUser] = useState({
@@ -14,12 +14,12 @@ export default function Signup() {
         agree: false
     });
 
-    const {name, username, password, agree} = user;
+    const { name, username, password, agree } = user;
 
     const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
     const onChangeAgree = (e) => setUser({ ...user, [e.target.name]: e.target.checked });
 
-    const onSubmit = (e)=>{
+    const onSubmit = (e) => {
         console.log(username, password);
         toast.error(username);
         e.preventDefault();
@@ -28,13 +28,13 @@ export default function Signup() {
             //   username,
             //   password
             // });
-          }
+        }
     }
     return (
         <>
             <nav className="absolute top-0 z-30 flex flex-wrap items-center justify-between w-full px-4 py-2 mt-6 mb-4 shadow-none lg:flex-nowrap lg:justify-start">
                 <div className="container flex items-center justify-between py-0 flex-wrap-inherit">
-                    <a className="py-2.375 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-white lg:ml-0" href="../pages/dashboard.html"> Soft UI Dashboard </a>
+                    <a className="py-2.375 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-white lg:ml-0" href="/dashboard"> Soft UI Dashboard </a>
                     <button className="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden" type="button" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="inline-block mt-2 align-middle bg-center bg-no-repeat bg-cover w-6 h-6 bg-none">
                             <span className="w-5.5 rounded-xs duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
@@ -45,30 +45,34 @@ export default function Signup() {
                     <div className="items-center flex-grow transition-all ease-soft duration-350 lg-max:bg-white lg-max:max-h-0 lg-max:overflow-hidden basis-full rounded-xl lg:flex lg:basis-auto">
                         <ul className="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto">
                             <li>
-                                <Link className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all duration-250 lg-max:opacity-0 lg-max:text-slate-700 ease-soft-in-out text-sm lg:px-2 lg:hover:text-white/75" aria-current="page" 
-                                href="/dashboard">
-                                    <i className="mr-1 text-white lg-max:text-slate-700 fa fa-chart-pie opacity-60"></i>
+                                <a className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm lg:px-2"
+                                    aria-current="page"
+                                    href="/dashboard"
+                                >
+                                    <FaChartPie className="mr-1 text-white lg-max:text-slate-700 opacity-60" />
                                     Dashboard
-                                </Link>
+                                </a>
                             </li>
-                            <li>
-                                <Link className="block px-4 py-2 mr-2 font-normal text-white transition-all duration-250 lg-max:opacity-0 lg-max:text-slate-700 ease-soft-in-out text-sm lg:px-2 lg:hover:text-white/75" 
-                                href="/profile">
-                                    <i className="mr-1 text-white lg-max:text-slate-700 fa fa-user opacity-60"></i>
+                            {/* <li>
+                                <a className="flex items-center px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" href="/profile">
+                                    <FaUser className="mr-1 text-white lg-max:text-slate-700 opacity-60"/>
                                     Profile
-                                </Link>
-                            </li>
+                                </a>
+                            </li> */}
                             <li>
-                                <Link className="block px-4 py-2 mr-2 font-normal text-white transition-all duration-250 lg-max:opacity-0 lg-max:text-slate-700 ease-soft-in-out text-sm lg:px-2 lg:hover:text-white/75" 
-                                href="/signup">
-                                    <i className="mr-1 text-white lg-max:text-slate-700 fas fa-user-circle opacity-60"></i>
+                                <Link
+                                    className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm lg:px-2"
+                                    href="/signup">
+                                    {/* <i className="mr-1 fas fa-user-circle opacity-60"></i> */}
+                                    <FaUserCircle className="mr-1 text-white lg-max:text-slate-700 opacity-60" />
                                     Sign Up
                                 </Link>
                             </li>
                             <li>
-                                <Link className="block px-4 py-2 mr-2 font-normal text-white transition-all duration-250 lg-max:opacity-0 lg-max:text-slate-700 ease-soft-in-out text-sm lg:px-2 lg:hover:text-white/75" 
-                                href="/signin">
-                                    <i className="mr-1 text-white lg-max:text-slate-700 fas fa-key opacity-60"></i>
+                                <Link className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm lg:px-2"
+                                    href="">
+                                    {/* <i className="mr-1 fas fa-key opacity-60"></i> */}
+                                    <FaKey className="mr-1 text-white lg-max:text-slate-700 opacity-60" />
                                     Sign In
                                 </Link>
                             </li>
@@ -113,7 +117,7 @@ export default function Signup() {
                                     </div>
                                     <div className="flex flex-wrap px-3 -mx-3 sm:px-6 xl:px-12">
                                         <div className="w-3/12 max-w-full px-1 ml-auto flex-0">
-                                            <a className="inline-block w-full px-6 py-3 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75" href="#">
+                                            <a className="flex items-center w-full px-6 py-3 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75" href="#">
                                                 <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink32">
                                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                                         <g transform="translate(3.000000, 3.000000)" fillRule="nonzero">
@@ -125,7 +129,7 @@ export default function Signup() {
                                             </a>
                                         </div>
                                         <div className="w-3/12 max-w-full px-1 flex-0">
-                                            <a className="inline-block w-full px-6 py-3 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75" href="#">
+                                            <a className="flex items-center w-full px-6 py-3 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75" href="#">
                                                 <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                                         <g transform="translate(7.000000, 0.564551)" fill="#000000" fillRule="nonzero">
@@ -138,7 +142,7 @@ export default function Signup() {
                                             </a>
                                         </div>
                                         <div className="w-3/12 max-w-full px-1 mr-auto flex-0">
-                                            <a className="inline-block w-full px-6 py-3 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75" href="#">
+                                            <a className="flex items-center w-full px-6 py-3 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75" href="#">
                                                 <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                                         <g transform="translate(3.000000, 2.000000)" fillRule="nonzero">
@@ -158,49 +162,49 @@ export default function Signup() {
                                     <div className="flex-auto p-6">
                                         <form role="form text-left" onSubmit={onSubmit}>
                                             <div className="mb-4">
-                                                <input type="text" 
-                                                className="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" 
-                                                placeholder="Name" 
-                                                aria-label="Name" 
-                                                aria-describedby="email-addon" 
-                                                name='name'
-                                                onChange={onChange}
-                                                value={name}
+                                                <input type="text"
+                                                    className="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                                    placeholder="Name"
+                                                    aria-label="Name"
+                                                    aria-describedby="email-addon"
+                                                    name='name'
+                                                    onChange={onChange}
+                                                    value={name}
                                                 />
                                             </div>
                                             <div className="mb-4">
-                                                <input type="username" 
-                                                className="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" 
-                                                placeholder="Username" 
-                                                aria-label="Username" 
-                                                aria-describedby="username-addon"
-                                                name='username'
-                                                onChange={onChange}
-                                                value={username} 
+                                                <input type="username"
+                                                    className="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                                    placeholder="Username"
+                                                    aria-label="Username"
+                                                    aria-describedby="username-addon"
+                                                    name='username'
+                                                    onChange={onChange}
+                                                    value={username}
                                                 />
                                             </div>
                                             <div className="mb-4">
-                                                <input type="password" 
-                                                className="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" 
-                                                placeholder="Password" 
-                                                aria-label="Password" 
-                                                aria-describedby="password-addon" 
-                                                name='password'
-                                                onChange={onChange}
-                                                value={password}
+                                                <input type="password"
+                                                    className="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                                    placeholder="Password"
+                                                    aria-label="Password"
+                                                    aria-describedby="password-addon"
+                                                    name='password'
+                                                    onChange={onChange}
+                                                    value={password}
                                                 />
                                             </div>
                                             <div className="flex min-h-6 pl-6.92 mb-0.5">
-                                                <input id="terms" className="checkbox" 
-                                                type="checkbox" 
-                                                value={agree} 
-                                                onChange={onChangeAgree}
+                                                <input id="terms" className="checkbox"
+                                                    type="checkbox"
+                                                    value={agree}
+                                                    onChange={onChangeAgree}
                                                 />
                                                 <label className="mb-2 ml-1 font-normal cursor-pointer select-none text-sm text-slate-700"> I agree the <a href="#" className="font-bold text-slate-700">Terms and Conditions</a> </label>
                                             </div>
                                             <div className="text-center">
-                                                <button type="submit" 
-                                                className="inline-block w-full px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-gray-900 to-slate-800 hover:border-slate-700 hover:bg-slate-700 hover:text-white">Sign up</button>
+                                                <button type="submit"
+                                                    className="inline-block w-full px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-gray-900 to-slate-800 hover:border-slate-700 hover:bg-slate-700 hover:text-white">Sign up</button>
                                             </div>
                                             <p className="mt-4 mb-0 leading-normal text-sm">Already have an account? <Link href="/signin" className="font-bold text-slate-700">Sign in</Link></p>
                                         </form>
@@ -222,23 +226,23 @@ export default function Signup() {
                                 <a href="#" target="_blank" className="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Blog </a>
                                 <a href="#" target="_blank" className="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Pricing </a>
                             </div>
-                        <div className="flex justify-center w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
-                            <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg"><FaDribbble/></span>
-                            </a>
-                            <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg"><FaTwitter/></span>
-                            </a>
-                            <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg"><FaInstagram/></span>
-                            </a>
-                            <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg"><FaPinterest/></span>
-                            </a>
-                            <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg"><FaGithub/></span>
-                            </a>
-                        </div>
+                            <div className="flex justify-center w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
+                                <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                    <span className="text-lg"><FaDribbble /></span>
+                                </a>
+                                <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                    <span className="text-lg"><FaTwitter /></span>
+                                </a>
+                                <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                    <span className="text-lg"><FaInstagram /></span>
+                                </a>
+                                <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                    <span className="text-lg"><FaPinterest /></span>
+                                </a>
+                                <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                    <span className="text-lg"><FaGithub /></span>
+                                </a>
+                            </div>
                         </div>
                         <div className="flex flex-wrap -mx-3">
                             <div className="w-8/12 max-w-full px-3 mx-auto mt-1 text-center flex-0">
