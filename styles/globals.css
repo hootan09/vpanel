@@ -14,5 +14,14 @@
     .BackGroundSignUp {
         background-image: url('/assets/img/curved-images/curved14.jpg')
     }
+
+    .ProfileBackGround1 {
+        background-image: url('/assets/img/curved-images/white-curved.jpeg')
+    }
+
+    .ProfileBackGround2 {
+        background-image: url('/assets/img/curved-images/curved0.jpg'); 
+        background-position-y: 50%
+    }
     
 }
