@@ -139,7 +139,7 @@ export default function Page() {
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/login">
+              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/signin">
                 <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                   <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>document</title>
@@ -237,7 +237,7 @@ export default function Page() {
                   <a className="inline-block px-8 py-2 mb-0 mr-4 font-bold text-center text-white uppercase align-middle transition-all border border-solid rounded-lg shadow-none cursor-pointer leading-pro border-white/75 bg-white/10 ease-soft-in text-xs hover:scale-102 active:shadow-soft-xs tracking-tight-soft hover:border-white hover:bg-transparent hover:text-white hover:opacity-75 hover:shadow-none active:bg-white active:text-black active:hover:bg-transparent active:hover:text-white" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
                 </li> --> */}
                 <li className="flex items-center">
-                  <a href="/login" className="flex items-center px-0 py-2 font-semibold text-white transition-all ease-soft-in-out text-sm">
+                  <a href="/signin" className="flex items-center px-0 py-2 font-semibold text-white transition-all ease-soft-in-out text-sm">
                     {/* <i className="fa fa-user sm:mr-1" aria-hidden="true"></i> */}
                     <div className='sm:mr-1'>
                       <FaUser/>

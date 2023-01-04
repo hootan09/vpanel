@@ -6,6 +6,6 @@ import {useRouter, usePathname, useSearchParams} from 'next/navigation';
 
 export default function Home() {
   const router = useRouter();
-  router.push("/login");
+  router.push("/signin");
   return null;
 }

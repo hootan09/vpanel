@@ -4,7 +4,9 @@ import {useState} from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-export default function login() {
+import { FaChartPie, FaDribbble, FaGithub, FaInstagram, FaKey, FaPinterest, FaTwitter, FaUser, FaUserCircle } from 'react-icons/fa';
+
+export default function Signin() {
     const [user, setUser] = useState({
         username: '',
         password: '',
@@ -48,28 +50,32 @@ export default function login() {
                                     <ul className="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto">
                                         <li>
                                             <a className="flex items-center px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" aria-current="page" href="../pages/dashboard.html">
-                                                <i className="mr-1 fa fa-chart-pie opacity-60"></i>
+                                                {/* <i className="mr-1 fa fa-chart-pie opacity-60"></i> */}
+                                                <FaChartPie className="mr-1 opacity-60"/>
                                                 Dashboard
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" href="../pages/profile.html">
-                                                <i className="mr-1 fa fa-user opacity-60"></i>
+                                            <a className="flex px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" href="../pages/profile.html">
+                                                {/* <i className="mr-1 fa fa-user opacity-60"></i> */}
+                                                <FaUser className="mr-1 opacity-60"/>
                                                 Profile
                                             </a>
                                         </li>
                                         <li>
                                             <Link 
-                                            className="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" 
+                                            className="flex px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" 
                                             href="/signup">
-                                                <i className="mr-1 fas fa-user-circle opacity-60"></i>
+                                                {/* <i className="mr-1 fas fa-user-circle opacity-60"></i> */}
+                                                <FaUserCircle className="mr-1 opacity-60"/>
                                                 Sign Up
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link className="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" 
+                                            <Link className="flex px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" 
                                                 href="">
-                                                <i className="mr-1 fas fa-key opacity-60"></i>
+                                                {/* <i className="mr-1 fas fa-key opacity-60"></i> */}
+                                                <FaKey className="mr-1 opacity-60"/>
                                                 Sign In
                                             </Link>
                                         </li>
@@ -94,7 +100,7 @@ export default function login() {
                     </div>
                 </div>
             </div>
-            <main className="mt-0 transition-all duration-200 ease-soft-in-out">
+            <main className="container mt-0 transition-all duration-200 ease-soft-in-out">
                 <section>
                     <div className="relative flex items-center p-0 overflow-hidden bg-center bg-cover min-h-75-screen">
                         <div className="container z-10">
@@ -177,21 +183,21 @@ export default function login() {
                             <a href="#" target="_blank" className="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Blog </a>
                             <a href="#" target="_blank" className="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Pricing </a>
                         </div>
-                        <div className="flex-shrink-0 w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
+                        <div className="flex justify-center w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
                             <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg fab fa-dribbble"></span>
+                                <span className="text-lg"><FaDribbble/></span>
                             </a>
                             <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg fab fa-twitter"></span>
+                                <span className="text-lg"><FaTwitter /></span>
                             </a>
                             <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg fab fa-instagram"></span>
+                                <span className="text-lg"><FaInstagram/></span>
                             </a>
                             <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg fab fa-pinterest"></span>
+                                <span className="text-lg"><FaPinterest/></span>
                             </a>
                             <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                <span className="text-lg fab fa-github"></span>
+                                <span className="text-lg"><FaGithub/></span>
                             </a>
                         </div>
                     </div>

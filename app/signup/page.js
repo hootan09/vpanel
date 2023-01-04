@@ -4,6 +4,7 @@ import {useState} from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { FaDribbble, FaGithub, FaInstagram, FaPinterest, FaTwitter } from 'react-icons/fa';
 
 export default function Signup() {
     const [user, setUser] = useState({
@@ -66,7 +67,7 @@ export default function Signup() {
                             </li>
                             <li>
                                 <Link className="block px-4 py-2 mr-2 font-normal text-white transition-all duration-250 lg-max:opacity-0 lg-max:text-slate-700 ease-soft-in-out text-sm lg:px-2 lg:hover:text-white/75" 
-                                href="/login">
+                                href="/signin">
                                     <i className="mr-1 text-white lg-max:text-slate-700 fas fa-key opacity-60"></i>
                                     Sign In
                                 </Link>
@@ -201,7 +202,7 @@ export default function Signup() {
                                                 <button type="submit" 
                                                 className="inline-block w-full px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-gray-900 to-slate-800 hover:border-slate-700 hover:bg-slate-700 hover:text-white">Sign up</button>
                                             </div>
-                                            <p className="mt-4 mb-0 leading-normal text-sm">Already have an account? <Link href="/login" className="font-bold text-slate-700">Sign in</Link></p>
+                                            <p className="mt-4 mb-0 leading-normal text-sm">Already have an account? <Link href="/signin" className="font-bold text-slate-700">Sign in</Link></p>
                                         </form>
                                     </div>
                                 </div>
@@ -221,23 +222,23 @@ export default function Signup() {
                                 <a href="#" target="_blank" className="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Blog </a>
                                 <a href="#" target="_blank" className="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Pricing </a>
                             </div>
-                            <div className="flex-shrink-0 w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
-                                <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                    <span className="text-lg fab fa-dribbble"></span>
-                                </a>
-                                <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                    <span className="text-lg fab fa-twitter"></span>
-                                </a>
-                                <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                    <span className="text-lg fab fa-instagram"></span>
-                                </a>
-                                <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                    <span className="text-lg fab fa-pinterest"></span>
-                                </a>
-                                <a href="#" target="_blank" className="mr-6 text-slate-400">
-                                    <span className="text-lg fab fa-github"></span>
-                                </a>
-                            </div>
+                        <div className="flex justify-center w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
+                            <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                <span className="text-lg"><FaDribbble/></span>
+                            </a>
+                            <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                <span className="text-lg"><FaTwitter/></span>
+                            </a>
+                            <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                <span className="text-lg"><FaInstagram/></span>
+                            </a>
+                            <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                <span className="text-lg"><FaPinterest/></span>
+                            </a>
+                            <a href="#" target="_blank" className="mr-6 text-slate-400">
+                                <span className="text-lg"><FaGithub/></span>
+                            </a>
+                        </div>
                         </div>
                         <div className="flex flex-wrap -mx-3">
                             <div className="w-8/12 max-w-full px-3 mx-auto mt-1 text-center flex-0">
