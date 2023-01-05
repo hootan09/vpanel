@@ -2,21 +2,25 @@
 
 import {FaBell, FaCog, FaSearch, FaUser} from 'react-icons/fa'
 
-export default function NavBar({menuItem, OnToggleSettings, fixedNavbar}) {
+export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite}) {
     return (
        
-        <nav className={fixedNavbar? "absolute z-20 flex flex-wrap items-center justify-between w-full px-6 py-2 text-white transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start" :  "relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"}
+        <nav className={
+            fixedNavbar? 
+            `absolute z-20 flex flex-wrap items-center justify-between w-full ${isWhite? ' px-6 py-2  text-white': ' py-2 mx-6 rounded-2xl top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur'} transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start` 
+            :  
+            "flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"}
         >
             <div className="flex items-center justify-between w-full px-6 py-1 mx-auto flex-wrap-inherit">
                 <nav>
                     {/* <!-- breadcrumb --> */}
-                    <ol className="flex flex-wrap pt-1 pl-2 pr-4 mr-12 bg-transparent rounded-lg sm:mr-16">
+                    <ol className={`flex flex-wrap pt-1 pl-2 pr-4 mr-12 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} rounded-lg sm:mr-16`}>
                         <li className="leading-normal text-sm">
                             <a className="opacity-50" href="#">Dashboard</a>
                         </li>
                         <li className="text-sm pl-2 capitalize leading-normal before:float-left before:pr-2 before:content-['/']" aria-current="page">{menuItem}</li>
                     </ol>
-                    <h6 className={`mb-2 ml-2 font-bold ${fixedNavbar && 'text-white'} capitalize`}>{menuItem}</h6>
+                    <h6 className={`mb-2 ml-2 font-bold ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} capitalize`}>{menuItem}</h6>
                 </nav>
 
                 <div className="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -34,7 +38,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar}) {
                 <a className="inline-block px-8 py-2 mb-0 mr-4 font-bold text-center text-white uppercase align-middle transition-all border border-solid rounded-lg shadow-none cursor-pointer leading-pro border-white/75 bg-white/10 ease-soft-in text-xs hover:scale-102 active:shadow-soft-xs tracking-tight-soft hover:border-white hover:bg-transparent hover:text-white hover:opacity-75 hover:shadow-none active:bg-white active:text-black active:hover:bg-transparent active:hover:text-white" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
               </li> --> */}
                         <li className="flex items-center">
-                            <a href="/signin" className={`flex items-center px-0 py-2 font-semibold ${fixedNavbar && 'text-white'}  transition-all ease-soft-in-out text-sm`}>
+                            <a href="/signin" className={`flex items-center px-0 py-2 font-semibold ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all ease-soft-in-out text-sm`}>
                                 {/* <i className="fa fa-user sm:mr-1" aria-hidden="true"></i> */}
                                 <div className='sm:mr-1'>
                                     <FaUser />
@@ -52,7 +56,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar}) {
                             </a>
                         </li>
                         <li className="flex items-center px-4" onClick={OnToggleSettings}>
-                            <div href="#" className={`p-0 ${fixedNavbar && 'text-white'}  transition-all text-sm ease-soft-in-out`}>
+                            <div href="#" className={`p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all text-sm ease-soft-in-out`}>
                                 <div className='cursor-pointer'>
                                     <FaCog />
                                 </div>
@@ -64,7 +68,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar}) {
 
                         <li className="relative flex items-center pr-2">
                             <p className="hidden transform-dropdown-show"></p>
-                            <a href="#" className={`block p-0 ${fixedNavbar && 'text-white'}  transition-all text-sm ease-nav-brand`} aria-expanded="false">
+                            <a href="#" className={`block p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all text-sm ease-nav-brand`} aria-expanded="false">
                                 {/* <i className="cursor-pointer fa fa-bell" aria-hidden="true"></i> */}
                                 <div className='cursor-pointer'>
                                     <FaBell />
