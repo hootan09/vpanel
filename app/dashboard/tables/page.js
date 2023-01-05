@@ -1,5 +1,6 @@
 'use client'
 
+import { FaEllipsisV } from 'react-icons/fa';
 import Footer from '../footer';
 
 export default function Tables() {
@@ -50,7 +51,7 @@ export default function Tables() {
                                                     <span className="font-semibold leading-tight text-xs text-slate-400">23/04/18</span>
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                    <a href="javascript:;" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
+                                                    <a href="#" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -76,7 +77,7 @@ export default function Tables() {
                                                     <span className="font-semibold leading-tight text-xs text-slate-400">11/01/19</span>
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                    <a href="javascript:;" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
+                                                    <a href="#" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -102,7 +103,7 @@ export default function Tables() {
                                                     <span className="font-semibold leading-tight text-xs text-slate-400">19/09/17</span>
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                    <a href="javascript:;" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
+                                                    <a href="#" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -128,7 +129,7 @@ export default function Tables() {
                                                     <span className="font-semibold leading-tight text-xs text-slate-400">24/12/08</span>
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                    <a href="javascript:;" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
+                                                    <a href="#" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -154,7 +155,7 @@ export default function Tables() {
                                                     <span className="font-semibold leading-tight text-xs text-slate-400">04/10/21</span>
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                    <a href="javascript:;" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
+                                                    <a href="#" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -180,7 +181,7 @@ export default function Tables() {
                                                     <span className="font-semibold leading-tight text-xs text-slate-400">14/09/20</span>
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                                                    <a href="javascript:;" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
+                                                    <a href="#" className="font-semibold leading-tight text-xs text-slate-400"> Edit </a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -241,7 +242,8 @@ export default function Tables() {
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <button className="inline-block px-6 py-3 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none leading-pro text-xs ease-soft-in bg-150 tracking-tight-soft bg-x-25 text-slate-400">
-                                                        <i className="leading-tight fa fa-ellipsis-v text-xs"></i>
+                                                        {/* <i className="leading-tight fa fa-ellipsis-v text-xs"></i> */}
+                                                        <FaEllipsisV/>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -274,7 +276,8 @@ export default function Tables() {
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <button className="inline-block px-6 py-3 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none leading-pro text-xs ease-soft-in bg-150 tracking-tight-soft bg-x-25 text-slate-400" aria-haspopup="true" aria-expanded="false">
-                                                        <i className="leading-tight fa fa-ellipsis-v text-xs"></i>
+                                                        {/* <i className="leading-tight fa fa-ellipsis-v text-xs"></i> */}
+                                                        <FaEllipsisV/>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -307,7 +310,8 @@ export default function Tables() {
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <button className="inline-block px-6 py-3 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none leading-pro text-xs ease-soft-in bg-150 tracking-tight-soft bg-x-25 text-slate-400" aria-haspopup="true" aria-expanded="false">
-                                                        <i className="leading-tight fa fa-ellipsis-v text-xs"></i>
+                                                        {/* <i className="leading-tight fa fa-ellipsis-v text-xs"></i> */}
+                                                        <FaEllipsisV/>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -340,7 +344,8 @@ export default function Tables() {
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <button className="inline-block px-6 py-3 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none leading-pro text-xs ease-soft-in bg-150 tracking-tight-soft bg-x-25 text-slate-400" aria-haspopup="true" aria-expanded="false">
-                                                        <i className="leading-tight fa fa-ellipsis-v text-xs"></i>
+                                                        {/* <i className="leading-tight fa fa-ellipsis-v text-xs"></i> */}
+                                                        <FaEllipsisV/>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -373,7 +378,8 @@ export default function Tables() {
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <button className="inline-block px-6 py-3 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none leading-pro text-xs ease-soft-in bg-150 tracking-tight-soft bg-x-25 text-slate-400" aria-haspopup="true" aria-expanded="false">
-                                                        <i className="leading-tight fa fa-ellipsis-v text-xs"></i>
+                                                        {/* <i className="leading-tight fa fa-ellipsis-v text-xs"></i> */}
+                                                        <FaEllipsisV/>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -406,7 +412,8 @@ export default function Tables() {
                                                 </td>
                                                 <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
                                                     <button className="inline-block px-6 py-3 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none leading-pro text-xs ease-soft-in bg-150 tracking-tight-soft bg-x-25 text-slate-400" aria-haspopup="true" aria-expanded="false">
-                                                        <i className="leading-tight fa fa-ellipsis-v text-xs"></i>
+                                                        {/* <i className="leading-tight fa fa-ellipsis-v text-xs"></i> */}
+                                                        <FaEllipsisV/>
                                                     </button>
                                                 </td>
                                             </tr>

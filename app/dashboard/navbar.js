@@ -7,9 +7,9 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
        
         <nav className={
             fixedNavbar? 
-            `absolute z-20 flex flex-wrap items-center justify-between w-full ${isWhite? ' px-6 py-2  text-white': ' py-2 mx-6 rounded-2xl top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur'} transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start` 
+            ` z-20 flex flex-wrap items-center justify-between w-full ${isWhite? 'absolute px-6 py-2 mx-auto  text-white': 'px-6 py-2 mx-auto top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px]  shadow-blur'} transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start` 
             :  
-            "flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"}
+            "flex flex-wrap items-center justify-between px-0 py-2 mb-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"}
         >
             <div className="flex items-center justify-between w-full px-6 py-1 mx-auto flex-wrap-inherit">
                 <nav>

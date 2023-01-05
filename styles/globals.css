@@ -23,5 +23,24 @@
         background-image: url('/assets/img/curved-images/curved0.jpg'); 
         background-position-y: 50%
     }
+
+    .BillingBackGround1 {
+        background-image: url('/assets/img/curved-images/curved14.jpg')
+    }
+
+    .BillingStyle1 {
+        position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(617px, -513px);
+    }
+
+    .BillingStyle2 {
+        position: absolute; left: 0px; transform: translate(0px);
+    }
+    .BillingStyle3 {
+        position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(978px, -513px)
+    }
+
+    .BillingStyle4 {
+        position: absolute; left: 0px; transform: translate(0px);
+    }
     
 }
