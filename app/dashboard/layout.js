@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import Link from 'next/link';
 import NavBar from "./navbar";
 import SideSettings from "./sideSettings";
 
@@ -10,7 +11,7 @@ export default function layout({ children }) {
   const [fixedNavbar, setFixedNavbar] = useState(true);
   const [menuItemColor, setMenuItemColor] = useState('from-purple-700 to-pink-500')
   const [sideTransparent, setSideTransparent] = useState(true)
-
+  const active = 'Profile';
   const OnToggleSettings = () =>{
     setTogleSideSettings(before => !before);
   }
@@ -29,7 +30,7 @@ export default function layout({ children }) {
 
   return (
     <>
-      <aside className={`max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 ${sideTransparent? 'bg-transparent':'bg-white'} p-0 antialiased ${sideTransparent? 'shadow-xl':'shadow-none'} transition-transform duration-200 xl:left-0 xl:translate-x-0 ${sideTransparent? 'xl:bg-transparent': 'xl-bg-white'}`}>
+      <aside className={`max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 p-0 antialiased  transition-transform duration-200 xl:left-0 xl:translate-x-0 ${sideTransparent? 'shadow-none bg-transparent xl:bg-transparent': 'shadow-soft-xl bg-white xl:bg-white-600'}`}>
         <div className="h-19.5">
           <i className="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden"></i>
           <a className="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="/dashboard" target="_blank">
@@ -44,8 +45,9 @@ export default function layout({ children }) {
         <div className="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
           <ul className="flex flex-col pl-0 mb-0">
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/dashboard">
-                <div className={`${sideTransparent? 'shadow-soft-3xl':'shadow-none'} mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-transparent':'bg-white'} bg-center stroke-0 text-center xl:p-2.5`}>
+              <Link className={`${active == 'Dashboard' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+                href="/dashboard/home">
+                <div className={`mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>shop</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -67,12 +69,13 @@ export default function layout({ children }) {
                   </svg>
                 </div>
                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
-              </a>
+              </Link>
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/tables">
-                <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+              <Link className={`${active == 'Tables' && sideTransparent && 'shadow-soft-xl bg-white'}  py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+                href="/dashboard/tables">
+                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>office</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -88,12 +91,13 @@ export default function layout({ children }) {
                   </svg>
                 </div>
                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Tables</span>
-              </a>
+              </Link>
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/billing">
-                <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+              <Link className={`${active == 'Billing' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+                href="/dashboard/billing">
+                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center fill-current stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>credit-card</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -109,13 +113,14 @@ export default function layout({ children }) {
                   </svg>
                 </div>
                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Billing</span>
-              </a>
+              </Link>
             </li>
 
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/rtl">
-                <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+              <Link className={`${active == 'RTL' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+                href="/dashboard/rtl">
+                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>settings</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -132,7 +137,7 @@ export default function layout({ children }) {
                   </svg>
                 </div>
                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">RTL</span>
-              </a>
+              </Link>
             </li>
 
             <li className="w-full mt-4">
@@ -140,7 +145,8 @@ export default function layout({ children }) {
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm shadow-soft-xl ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="/profile">
+              <Link className={`${active == 'Profile' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors`} 
+                href="/dashboard/profile">
                 <div className={`bg-gradient-to-tl ${menuItemColor} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>customer-support</title>
@@ -158,12 +164,12 @@ export default function layout({ children }) {
                   </svg>
                 </div>
                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Profile</span>
-              </a>
+              </Link>
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/signin">
-                <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+              <a className={`${active == 'Sign-In' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} href="/signin">
+                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>document</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -183,8 +189,8 @@ export default function layout({ children }) {
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="/signup">
-                <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+              <a className={`${active == 'Sign-Up' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} href="/signup">
+                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>spaceship</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

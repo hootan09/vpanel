@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
         <link href="/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
       </head>
       <body>
-        {/* <h5>root layout</h5> */}
         <ToastContainer />
         {children}
       </body>
