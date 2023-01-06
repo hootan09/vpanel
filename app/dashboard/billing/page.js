@@ -7,7 +7,7 @@ export default function Billing(){
 
 {/* <!-- content --> */}
 
-<div className="flex flex-wrap -mx-3">
+<div className="flex flex-wrap mx-3">
   <div className="max-w-full px-3 lg:w-2/3 lg:flex-none">
     <div className="flex flex-wrap -mx-3">
       <div className="w-full max-w-full px-3 mb-4 xl:mb-0 xl:w-1/2 xl:flex-none">
