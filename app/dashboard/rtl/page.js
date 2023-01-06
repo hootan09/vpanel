@@ -645,7 +645,7 @@ export default function rtl() {
                         <div className="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                             <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
                                 <h6>نظرة عامة على الطلبات</h6>
-                                <p className="leading-normal text-sm">
+                                <p className="flex items-center leading-normal text-sm">
                                     {/* <i className="fa fa-arrow-up text-lime-500" aria-hidden="true"></i> */}
                                     <FaArrowUp className="text-lime-500" />
                                     <span className="font-semibold">24%</span> هذا الشهر

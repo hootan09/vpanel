@@ -3,11 +3,11 @@
 
 import {FaCog, FaFacebookSquare, FaTimes, FaTwitter} from 'react-icons/fa'
 
-export default function SideSettings({open, onToggle, onToggleFixedNavbar, fixedNavbar, OnChangeMenuItemColor, onToggleTransparent,sideTransparent}) {
+export default function SideSettings({open, onToggle, onToggleFixedNavbar, fixedNavbar, OnChangeMenuItemColor, onToggleTransparent,sideTransparent, rtl=false}) {
 
     return (
         <div>
-            <div className="bottom-7.5 right-7.5 text-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700" onClick={onToggle}>
+            <div className={`bottom-7.5 ${rtl? 'left-7.5':'right-7.5'} text-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700`} onClick={onToggle}>
                 <div className='py-2 pointer-events-none'><FaCog /></div>
             </div>
             {/* <!-- -right-90 in loc de 0--> */}

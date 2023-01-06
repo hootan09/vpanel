@@ -15,11 +15,14 @@ export default function layout({ children }) {
     let paths = pathname.split('/');
     let name = paths[paths.length -1].toUpperCase();
     setActive(name);
+
+    //For setting RTL
     if(name == 'RTL'){
       setRtl(true);
     }else{
       setRtl(false);
     }
+    
   }, [pathname])
   
   const [togleSideSettings, setTogleSideSettings] = useState(false)
@@ -47,12 +50,12 @@ export default function layout({ children }) {
 
   return (
     <>
-      <aside className={`max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 p-0 antialiased  transition-transform duration-200 xl:left-0 xl:translate-x-0 ${sideTransparent? 'shadow-none bg-transparent xl:bg-transparent': 'shadow-soft-xl bg-white xl:bg-white-600'}`}>
+      <aside dir={rtl? 'rtl':'ltr'} className={`max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ${rtl? 'mr-4':'ml-4'} block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 p-0 antialiased  transition-transform duration-200 ${rtl? 'xl:right-0':'xl:left-0'} xl:translate-x-0 ${sideTransparent? 'shadow-none bg-transparent xl:bg-transparent': 'shadow-soft-xl bg-white xl:bg-white-600'}`}>
         <div className="h-19.5">
           <i className="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden"></i>
           <a className="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="/dashboard" target="_blank">
             <img src="../assets/img/logo-ct.png" className="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
-            <span className="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Soft UI Dashboard</span>
+            <span className={`${rtl? 'mr-1':'ml-1'} font-semibold transition-all duration-200 ease-nav-brand`}>Soft UI Dashboard</span>
           </a>
         </div>
 
@@ -62,9 +65,9 @@ export default function layout({ children }) {
         <div className="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
           <ul className="flex flex-col pl-0 mb-0">
             <li className="mt-0.5 w-full">
-              <Link onClick={()=>setActive('DASHBOARD')} className={`${active == 'DASHBOARD' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+              <Link onClick={()=>setActive('DASHBOARD')} className={`${active == 'DASHBOARD' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold text-slate-700 transition-colors`} 
                 href="/dashboard/home">
-                <div className={`${active == 'DASHBOARD' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                <div className={`${active == 'DASHBOARD' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>shop</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -85,14 +88,14 @@ export default function layout({ children }) {
                     </g>
                   </svg>
                 </div>
-                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
+                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{rtl? 'لوحة القيادة':'Dashboard'}</span>
               </Link>
             </li>
 
             <li className="mt-0.5 w-full">
-              <Link onClick={()=>setActive('TABLES')} className={`${active == 'TABLES' && sideTransparent && 'shadow-soft-xl bg-white'}  py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+              <Link onClick={()=>setActive('TABLES')} className={`${active == 'TABLES' && sideTransparent && 'shadow-soft-xl bg-white'}  py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold text-slate-700 transition-colors`} 
                 href="/dashboard/tables">
-                <div className={`${active == 'TABLES' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                <div className={`${active == 'TABLES' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>office</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -107,14 +110,14 @@ export default function layout({ children }) {
                     </g>
                   </svg>
                 </div>
-                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Tables</span>
+                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{rtl? 'الجداول':'Tables'}</span>
               </Link>
             </li>
 
             <li className="mt-0.5 w-full">
-              <Link onClick={()=>setActive('BILLING')} className={`${active == 'BILLING' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+              <Link onClick={()=>setActive('BILLING')} className={`${active == 'BILLING' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold text-slate-700 transition-colors`} 
                 href="/dashboard/billing">
-                <div className={`${active == 'BILLING' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                <div className={`${active == 'BILLING' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>credit-card</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -129,15 +132,15 @@ export default function layout({ children }) {
                     </g>
                   </svg>
                 </div>
-                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Billing</span>
+                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{rtl? 'الفواتير':'Billing'}</span>
               </Link>
             </li>
 
 
             <li className="mt-0.5 w-full">
-              <Link onClick={()=>setActive('RTL')} className={`${active == 'RTL' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} 
+              <Link onClick={()=>setActive('RTL')} className={`${active == 'RTL' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold text-slate-700 transition-colors`} 
                 href="/dashboard/rtl">
-                <div className={`${active == 'RTL' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                <div className={`${active == 'RTL' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>settings</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -158,13 +161,13 @@ export default function layout({ children }) {
             </li>
 
             <li className="w-full mt-4">
-              <h6 className="pl-6 ml-2 font-bold leading-tight uppercase text-xs opacity-60">Account pages</h6>
+              <h6 className={`${rtl? 'pr-6 mr-2':'pl-6 ml-2'} font-bold leading-tight uppercase text-md opacity-60`}>{rtl? 'صفحات الحساب':'Account Pages'}</h6>
             </li>
 
             <li className="mt-0.5 w-full">
               <Link onClick={()=>setActive('PROFILE')} className={`${active == 'PROFILE' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors`} 
                 href="/dashboard/profile">
-                <div className={`${active == 'PROFILE' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                <div className={`${active == 'PROFILE' ? ('bg-gradient-to-tl ' + menuItemColor) : sideTransparent? ' bg-white shadow-soft-3xl ':'bg-gray-200 shadow-non '}  ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>customer-support</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -180,13 +183,13 @@ export default function layout({ children }) {
                     </g>
                   </svg>
                 </div>
-                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Profile</span>
+                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{rtl? 'حساب تعريفي':'Profile'}</span>
               </Link>
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className={`${active == 'Sign-In' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} href="/signin">
-                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
+              <a className={`${active == 'Sign-In' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold text-slate-700 transition-colors`} href="/signin">
+                <div className={`shadow-soft-2xl ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>document</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -201,13 +204,13 @@ export default function layout({ children }) {
                     </g>
                   </svg>
                 </div>
-                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Sign In</span>
+                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{rtl? 'تسجيل الدخول':'Sign In'}</span>
               </a>
             </li>
 
             <li className="mt-0.5 w-full">
-              <a className={`${active == 'Sign-Up' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`} href="/signup">
-                <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
+              <a className={`${active == 'Sign-Up' && sideTransparent && 'shadow-soft-xl bg-white'} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold text-slate-700 transition-colors`} href="/signup">
+                <div className={`shadow-soft-2xl ${rtl? 'ml-2':'mr-2'} flex h-8 w-8 items-center justify-center rounded-lg ${sideTransparent? 'bg-white shadow-soft-3xl':'bg-gray-200 shadow-non'} bg-center stroke-0 text-center xl:p-2.5`}>
                   <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <title>spaceship</title>
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -227,7 +230,7 @@ export default function layout({ children }) {
                     </g>
                   </svg>
                 </div>
-                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Sign Up</span>
+                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{rtl? 'اشتراك':'Sign Up'}</span>
               </a>
             </li>
           </ul>
@@ -243,9 +246,9 @@ export default function layout({ children }) {
                 <i className="top-0 z-10 text-transparent ni leading-none ni-diamond text-lg bg-gradient-to-tl from-slate-600 to-slate-300 bg-clip-text opacity-80" aria-hidden="true" ></i>
               </div>
               <div className="transition-all duration-200 ease-nav-brand">
-                <h6 className="mb-0 text-white">Need help?</h6>
-                <p className="mt-0 mb-4 font-semibold leading-tight text-xs">Please check our docs</p>
-                <a href="https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/" target="_blank" className="inline-block w-full px-8 py-2 mb-0 font-bold text-center text-black uppercase transition-all ease-in bg-white border-0 border-white rounded-lg shadow-soft-md bg-150 leading-pro text-xs hover:shadow-soft-2xl hover:scale-102">Documentation</a>
+                <h6 className={`${rtl &&'text-right'} mb-0 text-white`}>{rtl? 'تحتاج مساعدة?':'Need help?'}</h6>
+                <p className={`${rtl &&'text-right'} mt-0 mb-4 font-semibold leading-tight text-xs`}>{rtl? 'يرجى التحقق من مستنداتنا':'Please check our docs'}</p>
+                <a href="https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/" target="_blank" className="inline-block w-full px-8 py-2 mb-0 font-bold text-center text-black uppercase transition-all ease-in bg-white border-0 border-white rounded-lg shadow-soft-md bg-150 leading-pro text-xs hover:shadow-soft-2xl hover:scale-102">{rtl? 'توثيق':'Documentation'}</a>
               </div>
             </div>
           </div>
@@ -253,7 +256,7 @@ export default function layout({ children }) {
           <a className="inline-block w-full px-6 py-3 my-4 font-bold text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg select-none shadow-soft-md bg-150 bg-x-25 leading-pro text-xs bg-gradient-to-tl from-purple-700 to-pink-500 hover:shadow-soft-2xl hover:scale-102" target="_blank" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro-tailwind?ref=sidebarfree">Upgrade to pro</a>
         </div>
       </aside>
-      <div className="ease-soft-in-out xl:ml-68.5 relative h-full bg-gray-50 transition-all duration-200">
+      <div className={`ease-soft-in-out ${rtl? 'xl:mr-68.5':'xl:ml-68.5'} relative h-full bg-gray-50 transition-all duration-200`}>
         {/* Nav Section */}
         <NavBar menuItem={active} OnToggleSettings={OnToggleSettings} fixedNavbar={fixedNavbar} isWhite={(active == 'Profile'? true: false)} rtl={rtl}/>
         
@@ -269,6 +272,7 @@ export default function layout({ children }) {
       OnChangeMenuItemColor={(color)=>onChangeMenuItemColor(color)}
       onToggleTransparent={onToggleTransparent}
       sideTransparent={sideTransparent}
+      rtl={rtl}
       />
     </>
   )
