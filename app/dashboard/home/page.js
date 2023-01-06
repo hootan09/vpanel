@@ -1,3 +1,4 @@
+import { FaArrowRight, FaArrowUp, FaCheck } from "react-icons/fa";
 import Footer from "../footer";
 
 export default function Home() {
@@ -118,9 +119,10 @@ export default function Home() {
                                         <p className="pt-2 mb-1 font-semibold">Built by developers</p>
                                         <h5 className="font-bold">Soft UI Dashboard</h5>
                                         <p className="mb-12">From colors, cards, typography to complex elements, you will find the full documentation.</p>
-                                        <a className="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="#">
+                                        <a className="flex items-center mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="#">
                                             Read More
-                                            <i className="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200" aria-hidden="true"></i>
+                                            {/* <i className="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200" aria-hidden="true"></i> */}
+                                            <FaArrowRight className="ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"/>
                                         </a>
                                     </div>
                                 </div>
@@ -143,9 +145,10 @@ export default function Home() {
                             <div className="relative z-10 flex flex-col flex-auto h-full p-4">
                                 <h5 className="pt-2 mb-6 font-bold text-white">Work with the rockets</h5>
                                 <p className="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
-                                <a className="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="#">
+                                <a className="flex items-center mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="#">
                                     Read More
-                                    <i className="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200" aria-hidden="true"></i>
+                                    {/* <i className="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200" aria-hidden="true"></i> */}
+                                    <FaArrowRight className="ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"/>
                                 </a>
                             </div>
                         </div>
@@ -275,8 +278,9 @@ export default function Home() {
                     <div className="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                         <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
                             <h6>Sales overview</h6>
-                            <p className="leading-normal text-sm">
-                                <i className="fa fa-arrow-up text-lime-500" aria-hidden="true"></i>
+                            <p className=" flex items-center leading-normal text-sm">
+                                {/* <i className="fa fa-arrow-up text-lime-500" aria-hidden="true"></i> */}
+                                <FaArrowUp className="text-lime-500 mr-1"/>
                                 <span className="font-semibold">4% more</span> in 2021
                             </p>
                         </div>
@@ -298,8 +302,9 @@ export default function Home() {
                             <div className="flex flex-wrap mt-0 -mx-3">
                                 <div className="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
                                     <h6>Projects</h6>
-                                    <p className="mb-0 leading-normal text-sm">
-                                        <i className="fa fa-check text-cyan-500" aria-hidden="true"></i>
+                                    <p className="flex items-center mb-0 leading-normal text-sm">
+                                        {/* <i className="fa fa-check text-cyan-500" aria-hidden="true"></i> */}
+                                        <FaCheck className="text-cyan-500 mr-1"/>
                                         <span className="ml-1 font-semibold">30 done</span>
                                         this month
                                     </p>
@@ -646,8 +651,9 @@ export default function Home() {
                         <div className="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                             <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
                                 <h6>Orders overview</h6>
-                                <p className="leading-normal text-sm">
-                                    <i className="fa fa-arrow-up text-lime-500" aria-hidden="true"></i>
+                                <p className="flex items-center leading-normal text-sm">
+                                    {/* <i className="fa fa-arrow-up text-lime-500" aria-hidden="true"></i> */}
+                                    <FaArrowUp className="text-lime-500 mr-1"/>
                                     <span className="font-semibold">24%</span> this month
                                 </p>
                             </div>
