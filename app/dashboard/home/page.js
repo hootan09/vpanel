@@ -1,4 +1,4 @@
-import { FaArrowRight, FaArrowUp, FaCheck } from "react-icons/fa";
+import { FaArrowRight, FaArrowUp, FaCheck, FaEllipsisV } from "react-icons/fa";
 import Footer from "../footer";
 
 export default function Home() {
@@ -312,7 +312,8 @@ export default function Home() {
                                 <div className="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
                                     <div className="relative pr-6 lg:float-right">
                                         <a dropdown-trigger="" className="cursor-pointer" aria-expanded="false">
-                                            <i className="fa fa-ellipsis-v text-slate-400" aria-hidden="true"></i>
+                                            {/* <i className="fa fa-ellipsis-v text-slate-400" aria-hidden="true"></i> */}
+                                            <FaEllipsisV className="text-slate-400"/>
                                         </a>
                                         <p className="hidden transform-dropdown-show"></p>
 
@@ -720,7 +721,7 @@ export default function Home() {
                 </div>
             </div>
     
-</div>
+        </div>
             {/* footer section */}
             <div className="my-6">
                 <Footer />
