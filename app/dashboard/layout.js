@@ -15,6 +15,11 @@ export default function layout({ children }) {
     let paths = pathname.split('/');
     let name = paths[paths.length -1].toUpperCase();
     setActive(name);
+    if(name == 'RTL'){
+      setRtl(true);
+    }else{
+      setRtl(false);
+    }
   }, [pathname])
   
   const [togleSideSettings, setTogleSideSettings] = useState(false)
@@ -22,6 +27,7 @@ export default function layout({ children }) {
   const [menuItemColor, setMenuItemColor] = useState('from-purple-700 to-pink-500')
   const [sideTransparent, setSideTransparent] = useState(true)
   const [active, setActive]  = useState('')
+  const [rtl, setRtl] = useState(false)
 
   const OnToggleSettings = () =>{
     setTogleSideSettings(before => !before);
@@ -249,7 +255,7 @@ export default function layout({ children }) {
       </aside>
       <div className="ease-soft-in-out xl:ml-68.5 relative h-full bg-gray-50 transition-all duration-200">
         {/* Nav Section */}
-        <NavBar menuItem={active} OnToggleSettings={OnToggleSettings} fixedNavbar={fixedNavbar} isWhite={(active == 'Profile'? true: false)}/>
+        <NavBar menuItem={active} OnToggleSettings={OnToggleSettings} fixedNavbar={fixedNavbar} isWhite={(active == 'Profile'? true: false)} rtl={rtl}/>
         
         {children}
 

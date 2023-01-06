@@ -2,10 +2,10 @@
 
 import {FaBell, FaCog, FaSearch, FaUser} from 'react-icons/fa'
 
-export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite}) {
+export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite, rtl=false}) {
     return (
        
-        <nav className={
+        <nav dir={rtl? 'rtl': 'ltr'} className={
             fixedNavbar? 
             ` z-20 flex flex-wrap items-center justify-between w-full ${isWhite? 'absolute px-6 py-2 mx-auto  text-white': 'px-6 py-2 mx-auto top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px]  shadow-blur'} transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start` 
             :  
@@ -14,11 +14,11 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
             <div className="flex items-center justify-between w-full px-6 py-1 mx-auto flex-wrap-inherit">
                 <nav>
                     {/* <!-- breadcrumb --> */}
-                    <ol className={`flex flex-wrap pt-1 pl-2 pr-4 mr-12 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} rounded-lg sm:mr-16`}>
-                        <li className="leading-normal text-sm">
-                            <a className="opacity-50" href="#">Dashboard</a>
+                    <ol className={`flex flex-wrap pt-1  ${!rtl && 'pl-2 pr-4 mr-12 sm:mr-16'} ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} rounded-lg`}>
+                        <li className={`${rtl && 'pl-2'} leading-normal text-sm`}>
+                            <a className="opacity-50" href="#">{rtl? 'لوحات القيادة':'Dashboard'}</a>
                         </li>
-                        <li className="text-sm pl-2 capitalize leading-normal before:float-left before:pr-2 before:content-['/']" aria-current="page">{menuItem}</li>
+                        <li className={`text-sm pl-2 capitalize leading-normal ${rtl? 'before:pl-2':'before:float-left'} before:px-2 before:content-['/']`} aria-current="page">{menuItem}</li>
                     </ol>
                     <h6 className={`mb-2 ml-2 font-bold ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} capitalize`}>{menuItem}</h6>
                 </nav>
@@ -29,7 +29,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                             <span className="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
                                 <FaSearch />
                             </span>
-                            <input type="text" className="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
+                            <input type="text" className={`${rtl? 'pr-8.75 pl-0':'pl-8.75 -ml-px pr-3'} py-2 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow`} placeholder={rtl? 'أكتب هنا...':"Type here..."} />
                         </div>
                     </div>
                     <ul className="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
@@ -40,7 +40,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                         <li className="flex items-center">
                             <a href="/signin" className={`flex items-center px-0 py-2 font-semibold ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all ease-soft-in-out text-sm`}>
                                 {/* <i className="fa fa-user sm:mr-1" aria-hidden="true"></i> */}
-                                <div className='sm:mr-1'>
+                                <div className='sm:mr-1 ml-1'>
                                     <FaUser />
                                 </div>
                                 <span className="hidden sm:inline">Sign In</span>
