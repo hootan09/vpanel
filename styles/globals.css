@@ -42,5 +42,21 @@
     .BillingStyle4 {
         position: absolute; left: 0px; transform: translate(0px);
     }
-    
+
+    .HomeBackGround1{
+        background-image: url('/assets/img/ivancik.jpg')
+    }
+
+    .homeStyle15{
+        position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(690px, 298px);
+    }
+    .homeStyle16{
+        position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(654px, 361px);
+    }
+    .homeStyle17 {
+        position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(654px, 109px);
+    }
+    .homeStyle18{
+        position: absolute; left: 0px; transform: translate(0px);
+    }
 }
