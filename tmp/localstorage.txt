@@ -1,0 +1,11 @@
+const getFromStorage = (key) => {
+if(typeof window !== 'undefined'){
+     window.localstorage.getItem(key)
+}
+}
+
+const setToStorage = (key,value) => {
+if(typeof window !== 'undefined'){
+     return window.localstorage.setItem(key,value)
+}
+}
