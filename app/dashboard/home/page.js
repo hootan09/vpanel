@@ -1,4 +1,7 @@
+'use client'
 import { FaArrowRight, FaArrowUp, FaCheck, FaEllipsisV } from "react-icons/fa";
+import Chart1 from "../../Components/chart1";
+import Chart2 from "../../Components/chart2";
 import Footer from "../footer";
 
 export default function Home() {
@@ -163,7 +166,8 @@ export default function Home() {
                         <div className="flex-auto p-4">
                             <div className="py-4 pr-1 mb-4 bg-gradient-to-tl from-gray-900 to-slate-800 rounded-xl">
                                 <div>
-                                    <canvas id="chart-bars" height="170"></canvas>
+                                    {/* <canvas id="chart-bars" height="170"></canvas> */}
+                                    <Chart1 height={173}/>
                                 </div>
                             </div>
                             <h6 className="mt-6 mb-0 ml-2">Active Users</h6>
@@ -286,7 +290,8 @@ export default function Home() {
                         </div>
                         <div className="flex-auto p-4">
                             <div>
-                                <canvas id="chart-line" height="300"></canvas>
+                                {/* <canvas id="chart-line" height="300"></canvas> */}
+                                <Chart2 height={300}/>
                             </div>
                         </div>
                     </div>
