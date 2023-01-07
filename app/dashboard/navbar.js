@@ -1,9 +1,21 @@
 'use client'
 
-import {FaBell, FaCog, FaSearch, FaUser} from 'react-icons/fa'
+import { useState } from 'react'
+import {FaBell, FaClock, FaCog, FaSearch, FaUser} from 'react-icons/fa'
 
 export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite, rtl=false}) {
+    
+    const [notifOpen, setNotifOpen] = useState(false);
+    const onFocusNotif = () => {
+        setNotifOpen(true);
+    }
+    const onBlurNotif = ()=> {
+        setNotifOpen(false)
+    }
+
     return (
+
+
        
         <nav dir={rtl? 'rtl': 'ltr'} className={
             fixedNavbar? 
@@ -66,29 +78,30 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
 
                         {/* <!-- notifications --> */}
 
-                        <li className={`relative flex items-center pr-2 dropdown ${!rtl && 'dropdown-end'}`}>
+                        <li className={`relative flex items-center pr-2`}>
                             <p className="hidden transform-dropdown-show"></p>
-                            <a tabindex={0} href="#" className={`block p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all text-sm ease-nav-brand`} aria-expanded="false">
+                            <a onFocus={onFocusNotif} onBlur={onBlurNotif} href="#" className={`block p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all text-sm ease-nav-brand`} aria-expanded="false">
                                 {/* <i className="cursor-pointer fa fa-bell" aria-hidden="true"></i> */}
                                 <div className='cursor-pointer'>
                                     <FaBell />
                                 </div>
                             </a>
 
-                            <ul tabIndex={0} 
-                            className="dropdown-content menu text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-8 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-10 lg:block lg:cursor-pointer">
+                            <ul
+                            className={`text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 ${rtl? 'before:sm:left-3 left-0 before:left-2 before:right-auto': 'before:sm:right-7.5 right-0 before:right-2 before:left-auto lg:right-0 lg:left-auto'} before:text-5.5 absolute top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:mt-2 lg:block lg:cursor-pointer ${notifOpen? 'before:-top-5 transform-dropdown-show': 'opacity-0 pointer-events-none transform-dropdown'}`}>
                                 {/* <!-- add show className on dropdown open js --> */}
                                 <li className="relative mb-2">
                                     <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 lg:transition-colors" href="#">
                                         <div className="flex py-1">
                                             <div className="my-auto">
-                                                <img src="../assets/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-white text-sm h-9 w-9 max-w-none rounded-xl" />
+                                                <img src="../assets/img/team-2.jpg" className={`inline-flex items-center justify-center ${rtl? 'ml-4':'mr-4'} text-white text-sm h-9 w-9 max-w-none rounded-xl`} />
                                             </div>
                                             <div className="flex flex-col justify-center">
-                                                <h6 className="mb-1 font-normal leading-normal text-sm"><span className="font-semibold">New message</span> from Laur</h6>
-                                                <p className="mb-0 leading-tight text-xs text-slate-400">
-                                                    <i className="mr-1 fa fa-clock" aria-hidden="true"></i>
-                                                    13 minutes ago
+                                                <h6 className="mb-1 font-normal leading-normal text-sm"><span className="font-semibold">{rtl? 'رسالة جديدة':'New message'}</span> {rtl? ' من لور':'from Laur'}</h6>
+                                                <p className="flex items-center mb-0 leading-tight text-xs text-slate-400">
+                                                    {/* <i className="mr-1 fa fa-clock" aria-hidden="true"></i> */}
+                                                    <FaClock className={`${rtl? 'ml-1': 'mr-1'}`}/>
+                                                    {rtl? ' منذ 13 دقيقة':'13 minutes ago'}
                                                 </p>
                                             </div>
                                         </div>
@@ -99,13 +112,14 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                                     <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 duration-300 lg:transition-colors" href="#">
                                         <div className="flex py-1">
                                             <div className="my-auto">
-                                                <img src="../assets/img/small-logos/logo-spotify.svg" className="inline-flex items-center justify-center mr-4 text-white text-sm bg-gradient-to-tl from-gray-900 to-slate-800 h-9 w-9 max-w-none rounded-xl" />
+                                                <img src="../assets/img/small-logos/logo-spotify.svg" className={`inline-flex items-center justify-center ${rtl? 'ml-4':'mr-4'} text-white text-sm bg-gradient-to-tl from-gray-900 to-slate-800 h-9 w-9 max-w-none rounded-xl`} />
                                             </div>
                                             <div className="flex flex-col justify-center">
-                                                <h6 className="mb-1 font-normal leading-normal text-sm"><span className="font-semibold">New album</span> by Travis Scott</h6>
-                                                <p className="mb-0 leading-tight text-xs text-slate-400">
-                                                    <i className="mr-1 fa fa-clock" aria-hidden="true"></i>
-                                                    1 day
+                                                <h6 className="mb-1 font-normal leading-normal text-sm"><span className="font-semibold">{rtl? 'البوم جدید':'New album'}</span> {rtl? ' بواسطة ترافيس سكوت':'by Travis Scott'}</h6>
+                                                <p className="flex items-center mb-0 leading-tight text-xs text-slate-400">
+                                                    {/* <i className="mr-1 fa fa-clock" aria-hidden="true"></i> */}
+                                                    <FaClock className={`${rtl? 'ml-1': 'mr-1'}`}/>
+                                                    {rtl? '1 یوم':'1 day'}
                                                 </p>
                                             </div>
                                         </div>
@@ -115,7 +129,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                                 <li className="relative">
                                     <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 duration-300 lg:transition-colors" href="#">
                                         <div className="flex py-1">
-                                            <div className="inline-flex items-center justify-center my-auto mr-4 text-white transition-all duration-200 ease-soft-in-out text-sm bg-gradient-to-tl from-slate-600 to-slate-300 h-9 w-9 rounded-xl">
+                                            <div className={`inline-flex items-center justify-center my-auto ${rtl? 'ml-4':'mr-4'} text-white transition-all duration-200 ease-soft-in-out text-sm bg-gradient-to-tl from-slate-600 to-slate-300 h-9 w-9 rounded-xl`}>
                                                 <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
                                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -131,10 +145,11 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                                                 </svg>
                                             </div>
                                             <div className="flex flex-col justify-center">
-                                                <h6 className="mb-1 font-normal leading-normal text-sm">Payment successfully completed</h6>
-                                                <p className="mb-0 leading-tight text-xs text-slate-400">
-                                                    <i className="mr-1 fa fa-clock" aria-hidden="true"></i>
-                                                    2 days
+                                                <h6 className="mb-1 font-normal leading-normal text-sm">{rtl? 'اكتمل الدفع بنجاح':'Payment successfully completed'}</h6>
+                                                <p className="flex items-center mb-0 leading-tight text-xs text-slate-400">
+                                                    {/* <i className="mr-1 fa fa-clock" aria-hidden="true"></i> */}
+                                                    <FaClock className={`${rtl? 'ml-1': 'mr-1'}`}/>
+                                                    {rtl? '2 ایام':'2 days'}
                                                 </p>
                                             </div>
                                         </div>
