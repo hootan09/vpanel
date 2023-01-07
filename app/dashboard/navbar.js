@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import {FaBell, FaClock, FaCog, FaSearch, FaUser} from 'react-icons/fa'
+import {FaBars, FaBell, FaClock, FaCog, FaSearch, FaUser} from 'react-icons/fa'
 
 export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite, rtl=false}) {
     
@@ -59,11 +59,9 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                             </a>
                         </li>
                         <li className="flex items-center pl-4 xl:hidden">
-                            <a href="#" className="block p-0 text-white transition-all ease-soft-in-out text-sm" >
+                            <a onClick={OnToggleSettings} href="#" className={`block p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all ease-soft-in-out text-sm`} >
                                 <div className="w-4.5 overflow-hidden">
-                                    <i className="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
-                                    <i className="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
-                                    <i className="ease-soft relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                                    <FaBars className={`${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} font-bold `}/>
                                 </div>
                             </a>
                         </li>

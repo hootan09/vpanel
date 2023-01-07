@@ -11,7 +11,7 @@ export default function SideSettings({open, onToggle, onToggleFixedNavbar, fixed
                 <div className='py-2 pointer-events-none'><FaCog /></div>
             </div>
             {/* <!-- -right-90 in loc de 0--> */}
-            <div className={`z-sticky shadow-soft-3xl w-90 ease-soft ${open ? 'right-0' : '-right-90'} fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200`}>
+            <div className={`z-sticky shadow-soft-3xl w-90 ease-soft ${open ? (rtl? 'left-0':'right-0') : (rtl? '-left-90 right-auto':'-right-90 left-auto')} fixed top-0 flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white bg-clip-border px-2.5 duration-200`}>
                 <div className="px-6 pt-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                     <div className="float-left">
                         <h5 className="mt-4 mb-0">Soft UI Configurator</h5>
