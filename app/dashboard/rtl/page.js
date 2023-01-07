@@ -1,3 +1,4 @@
+'use client'
 import { FaArrowLeft, FaArrowUp, FaCheck, FaEllipsisV } from "react-icons/fa";
 import Chart1 from "../../Components/chart1";
 import Chart2 from "../../Components/chart2";

@@ -1,3 +1,5 @@
+'use client'
+
 import { FaArrowDown, FaArrowUp, FaCalendarAlt, FaCalendarWeek, FaExclamation, FaFilePdf, FaLandmark, FaPaypal, FaPencilAlt, FaPlus, FaRegCalendarAlt, FaTrashAlt, FaWifi } from "react-icons/fa";
 import Footer from "../footer";
 
