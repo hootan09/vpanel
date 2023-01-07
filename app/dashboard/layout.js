@@ -14,7 +14,11 @@ export default function layout({ children }) {
   useEffect(() => {
     let paths = pathname.split('/');
     let name = paths[paths.length -1].toUpperCase();
-    setActive(name);
+    if(name == 'HOME'){
+      setActive('DASHBOARD');
+    }else{
+      setActive(name);
+    }
 
     //For setting RTL
     if(name == 'RTL'){
