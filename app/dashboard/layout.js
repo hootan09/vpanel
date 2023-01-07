@@ -29,7 +29,7 @@ export default function layout({ children }) {
   const [fixedNavbar, setFixedNavbar] = useState(true);
   const [menuItemColor, setMenuItemColor] = useState('from-purple-700 to-pink-500')
   const [sideTransparent, setSideTransparent] = useState(true)
-  const [active, setActive]  = useState('')
+  const [active, setActive]  = useState('DASHBOARD')
   const [rtl, setRtl] = useState(false)
 
   const OnToggleSettings = () =>{
