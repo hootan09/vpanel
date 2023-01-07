@@ -2,6 +2,8 @@
 /* eslint-disable @next/next/no-head-element */
 import '../styles/globals.css'
 import { ToastContainer } from 'react-toastify'
+import {Suspense} from 'react';
+import Loading from './feed/loading';
 
 export default function RootLayout({ children }) {
   return (
@@ -18,7 +20,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ToastContainer />
-        {children}
+        <Suspense fallback={<Loading/>}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );
