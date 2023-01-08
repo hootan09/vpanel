@@ -6,6 +6,7 @@ import {useRouter, usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import NavBar from "./navbar";
 import SideSettings from "./sideSettings";
+import { FaTimes } from "react-icons/fa";
 
 
 export default function layout({ children }) {
@@ -29,7 +30,9 @@ export default function layout({ children }) {
     
   }, [pathname])
   
-  const [togleSideSettings, setTogleSideSettings] = useState(false)
+  const [togleSideSettings, setTogleSideSettings] = useState(false);
+  const [toggleSideMenu, setTogleSideMenu] = useState(false);
+
   const [fixedNavbar, setFixedNavbar] = useState(true);
   const [menuItemColor, setMenuItemColor] = useState('from-purple-700 to-pink-500')
   const [sideTransparent, setSideTransparent] = useState(true)
@@ -38,6 +41,10 @@ export default function layout({ children }) {
 
   const OnToggleSettings = () =>{
     setTogleSideSettings(before => !before);
+  }
+
+  const OnToggleMenu = () =>{
+    setTogleSideMenu(before => !before)
   }
 
   const onToggleFixedNavbar = () =>{
@@ -54,9 +61,9 @@ export default function layout({ children }) {
 
   return (
     <>
-      <aside dir={rtl? 'rtl':'ltr'} className={`max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ${rtl? 'mr-4':'ml-4'} block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 p-0 antialiased  transition-transform duration-200 ${rtl? 'xl:right-0':'xl:left-0'} xl:translate-x-0 ${sideTransparent? 'shadow-none bg-transparent xl:bg-transparent': 'shadow-soft-xl bg-white xl:bg-white-600'}`}>
+      <aside dir={rtl? 'rtl':'ltr'} className={`max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ${rtl? 'mr-4':'ml-4'} block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 p-0 antialiased  transition-transform duration-200 ${rtl? 'xl:right-0':'xl:left-0'} xl:translate-x-0 ${sideTransparent? (toggleSideMenu?'shadow-soft-xl bg-white xl:bg-white-600':'shadow-none bg-transparent xl:bg-transparent'): 'shadow-soft-xl bg-white xl:bg-white-600'} ${toggleSideMenu &&'translate-x-0'}`}>
         <div className="h-19.5">
-          <i className="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden"></i>
+          <FaTimes onClick={OnToggleMenu} className={`absolute top-2 right-2 ${!toggleSideMenu && 'hidden'}  opacity-50 cursor-pointer text-slate-400 xl:hidden`}/>
           <a className="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="/dashboard" target="_blank">
             <img src="../assets/img/logo-ct.png" className="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
             <span className={`${rtl? 'mr-1':'ml-1'} font-semibold transition-all duration-200 ease-nav-brand`}>Soft UI Dashboard</span>
@@ -262,7 +269,7 @@ export default function layout({ children }) {
       </aside>
       <div className={`ease-soft-in-out ${rtl? 'xl:mr-68.5':'xl:ml-68.5'} relative h-full bg-gray-50 transition-all duration-200`}>
         {/* Nav Section */}
-        <NavBar menuItem={active} OnToggleSettings={OnToggleSettings} fixedNavbar={fixedNavbar} isWhite={(active == 'Profile'? true: false)} rtl={rtl}/>
+        <NavBar menuItem={active} OnToggleSettings={OnToggleSettings} OnToggleMenu={OnToggleMenu} fixedNavbar={fixedNavbar} isWhite={(active == 'Profile'? true: false)} rtl={rtl}/>
         
         {children}
 

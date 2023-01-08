@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import {FaBars, FaBell, FaClock, FaCog, FaSearch, FaUser} from 'react-icons/fa'
 
-export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite, rtl=false}) {
+export default function NavBar({menuItem, OnToggleSettings, OnToggleMenu, fixedNavbar, isWhite, rtl=false}) {
     
     const [notifOpen, setNotifOpen] = useState(false);
     const onFocusNotif = () => {
@@ -59,7 +59,7 @@ export default function NavBar({menuItem, OnToggleSettings, fixedNavbar, isWhite
                             </a>
                         </li>
                         <li className="flex items-center pl-4 xl:hidden">
-                            <a onClick={OnToggleSettings} href="#" className={`block p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all ease-soft-in-out text-sm`} >
+                            <a onClick={OnToggleMenu} href="#" className={`block p-0 ${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'}  transition-all ease-soft-in-out text-sm`} >
                                 <div className="w-4.5 overflow-hidden">
                                     <FaBars className={`${isWhite && fixedNavbar ? 'text-white': 'text-gray-600'} font-bold `}/>
                                 </div>

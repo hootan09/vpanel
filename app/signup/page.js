@@ -13,6 +13,10 @@ export default function Signup() {
         password: '',
         agree: false
     });
+    const [toggleMenu, setToggleMenu] = useState(false);
+    const OnToggleMenu = () => {
+        setToggleMenu(before => !before);
+    }
 
     const { name, username, password, agree } = user;
 
@@ -35,23 +39,23 @@ export default function Signup() {
             <nav className="absolute top-0 z-30 flex flex-wrap items-center justify-between w-full px-4 py-2 mt-6 mb-4 shadow-none lg:flex-nowrap lg:justify-start">
                 <div className="container flex items-center justify-between py-0 flex-wrap-inherit">
                     <a className="py-2.375 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-white lg:ml-0" href="/dashboard"> Soft UI Dashboard </a>
-                    <button className="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden" type="button" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="inline-block mt-2 align-middle bg-center bg-no-repeat bg-cover w-6 h-6 bg-none">
-                            <span className="w-5.5 rounded-xs duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
-                            <span className="w-5.5 rounded-xs mt-1.75 duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
-                            <span className="w-5.5 rounded-xs mt-1.75 duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
-                        </span>
+                    <button onClick={OnToggleMenu} className="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden" type="button" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <div className="inline-block mt-2 align-middle bg-center bg-no-repeat bg-cover w-6 h-6 bg-none">
+                            <span className={`w-5.5 rounded-xs         relative my-0 mx-auto block h-px bg-white transition-all duration-300 ${toggleMenu && 'rotate-45 origin-10-10 mt-1'}`}></span>
+                            <span className={`w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-white transition-all duration-300 ${toggleMenu && 'opacity-0'}`}></span>
+                            <span className={`w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-white transition-all duration-300 ${toggleMenu && '-rotate-45 origin-10-90 mt-0.75'}`}></span>
+                        </div>
                     </button>
-                    <div className="items-center flex-grow transition-all ease-soft duration-350 lg-max:bg-white lg-max:max-h-0 lg-max:overflow-hidden basis-full rounded-xl lg:flex lg:basis-auto">
+                    <div className={`items-center flex-grow transition-all ease-soft duration-350 lg-max:bg-white ${toggleMenu? 'lg-max:max-h-54':'lg-max:max-h-0'}  lg-max:overflow-hidden basis-full rounded-xl lg:flex lg:basis-auto`}>
                         <ul className="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto">
                             <li>
-                                <a className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm lg:px-2"
+                                <Link className={`flex items-center px-4 py-2 mr-2 font-normal transition-all ${!toggleMenu && 'text-white lg-max:opacity-0'} duration-250 ease-soft-in-out text-sm lg:px-2`}
                                     aria-current="page"
                                     href="/dashboard"
                                 >
                                     <FaChartPie className="mr-1 text-white lg-max:text-slate-700 opacity-60" />
                                     Dashboard
-                                </a>
+                                </Link>
                             </li>
                             {/* <li>
                                 <a className="flex items-center px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2" href="/profile">
@@ -61,7 +65,7 @@ export default function Signup() {
                             </li> */}
                             <li>
                                 <Link
-                                    className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm lg:px-2"
+                                    className={`flex items-center px-4 py-2 mr-2 font-normal transition-all ${!toggleMenu && 'text-white lg-max:opacity-0'} duration-250 ease-soft-in-out text-sm lg:px-2`}
                                     href="/signup">
                                     {/* <i className="mr-1 fas fa-user-circle opacity-60"></i> */}
                                     <FaUserCircle className="mr-1 text-white lg-max:text-slate-700 opacity-60" />
@@ -69,8 +73,8 @@ export default function Signup() {
                                 </Link>
                             </li>
                             <li>
-                                <Link className="flex items-center px-4 py-2 mr-2 font-normal text-white transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm lg:px-2"
-                                    href="">
+                                <Link className={`flex items-center px-4 py-2 mr-2 font-normal transition-all ${!toggleMenu && 'text-white lg-max:opacity-0'} duration-250 ease-soft-in-out text-sm lg:px-2`}
+                                    href="/signin">
                                     {/* <i className="mr-1 fas fa-key opacity-60"></i> */}
                                     <FaKey className="mr-1 text-white lg-max:text-slate-700 opacity-60" />
                                     Sign In
